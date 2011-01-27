@@ -19,28 +19,34 @@ from RCONProxyServerProtocol import RCONProxyServerProtocol;
 from RCONLogServerProtocol import RCONLogServerProtocol;
 from RCONUtil import RCONDB,RCONActivityLog;
 from twisted.internet import reactor
-import sys;
+import sys, getopt, ConfigParser;
 
 def load_config_file(filename):
-	conf_dict = {}
-	server_list = {}
-	id = 0;
-	for line in open(filename):
-		splitline = line.split(",")
-		if(splitline[0].strip() == 'server'):
-			server_list[id] = dict({'ip':splitline[1].strip(), 'port':splitline[2].strip(),
-				'pass':splitline[3].strip(), 'desc':splitline[4].strip(), 'game':splitline[5].strip()});
-			id += 1;
-			continue;
-		if(len(splitline) > 1):
-			conf_dict[splitline[0].strip()] = ",".join(splitline[1:]).strip();
-			print("conf: %s = %s"%(splitline[0], ",".join(splitline[1:]).strip()));
-	return (conf_dict, server_list)
+	config_obj = ConfigParser.ConfigParser();
+	config_obj.read(filename);
+	config_dict = dict();
+	for (key, value) in config_obj.items("global"):
+		config_dict[key] = value;
+	
+	return config_dict;
 
 
 def maul_rcon_main():
-	(state,server_list) = load_config_file(sys.argv[1]);
-	state['server_list'] = server_list;
+	
+	cfg_file_name = os.path.join(os.path.dirname( os.path.realpath( __file__ ) ),'maul_rcon.cfg')
+	opts = [];
+	try:
+		opts, args = getopt.getopt(args, "",["cfg=",])
+	except getopt.error, details:
+		print details
+		sys.exit(-1);
+		
+	for opt,val in opts:
+		if(opt=="--cfg"):
+			cfg_file_name = val;
+	
+	state = load_config_file(cfg_file_name);
+	state['server_list'] = dict();
 	state['db_obj'] = RCONDB(state['dbhost'], state['dbuser'], state['dbpass'], state['dbname']);
 	svr_mgr = RCONServerManager(state);
 	proxy_proto = RCONProxyServerProtocol(state);
