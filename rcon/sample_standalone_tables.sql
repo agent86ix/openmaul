@@ -1,4 +1,3 @@
-
 --
 -- Table structure for table `maul_rcon_log`
 --
@@ -40,3 +39,5 @@ CREATE TABLE IF NOT EXISTS `maul_rcon_users` (
   `adminkey_time` datetime NOT NULL,
   PRIMARY KEY  (`maulid`)
 ) ENGINE=MyISAM;
+
+insert into maul_rcon_users (username, password, games) values ('admin',md5(''),'*');
