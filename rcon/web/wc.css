@@ -1,0 +1,163 @@
+.loginform {
+	padding: 20px;
+	margin: 10px;
+	border: 1px solid black;
+	float: left;
+}
+
+.loginform h3 {
+	text-align: center;
+	font-family: sans-serif;
+	
+}
+
+.server_console {
+    overflow: auto; 
+    margin: 0px;
+    margin-top: 2px;
+    padding: 5px; 
+    font-family: courier; 
+    color: gray; 
+    background-color: black; 
+    font-size: 10pt;
+    width: expression(document.body.clientWidth*.73+'px');
+}
+.user_list {
+    overflow: auto; 
+    margin: 0px;
+    margin-top: 2px;
+    padding: 5px; 
+    font-family: courier; 
+    color: white; 
+    background-color: black; 
+    font-size: 10pt;
+    width: expression(document.body.clientWidth*.2+'px');
+   
+}
+.server_picker {
+	margin: 5px;
+}
+.twocol {
+	margin-top: 5px;
+	float:none;
+	clear:both;
+}
+.leftcol {
+	width:85%;
+	max-width:85%;
+	width: expression(document.body.clientWidth*.75+'px');
+	float:left;
+	padding: 0px;
+	margin: 0px;
+}
+.rightcol {
+	width:15%;
+	max-width:15%;
+	width: expression(document.body.clientWidth*.2+'px');
+	float:left;
+	padding: 0px;
+	margin: 0px;
+}
+.clear {
+	height:1px;
+	font-size:1px;
+	float:none;
+	clear:both;
+}
+.server_console pre {
+    display: inline;
+}
+.user_list pre {
+    display: inline;
+}
+.game {
+	display: none;
+	color: red;
+}
+.svr {
+	display: none;
+	color: yellow;
+}
+.greenchat {
+	color: lime;
+}
+.command_output {
+	color: white;
+}
+.wc-results div {
+	color: red;
+}
+.command_input {
+    margin: 1px;
+
+    font-family: "Consolas","Lucida Grande","Lucida Console",courier,monospace; 
+    color: gray; 
+    background-color: black; 
+    width: 100%;
+    font-size:12pt;
+    width: expression(document.body.clientWidth*.95+'px');
+}
+.statusline {
+	color: red;
+}
+
+a {
+	font-family: Arial;
+	margin: 2px;
+	padding: 5px;
+	font-size:10pt;
+	text-decoration: none;
+	color: black;
+	border: 1px solid black;
+	
+}
+
+
+.contextMenu {
+	position: absolute;
+	#width: 150px;
+	z-index: 99999;
+	border: solid 1px #CCC;
+	background: #EEE;
+	padding: 0px;
+	margin: 0px;
+	display: none;
+}
+
+.contextMenu LI {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+.contextMenu A {
+	background-color:white;
+	color: #333;
+	text-decoration: none;
+	display: block;
+	line-height: 20px;
+	height: 20px;
+	#background-position: 6px center;
+	#background-repeat: no-repeat;
+	outline: none;
+	padding: 1px 5px;
+	#padding-left: 28px;
+}
+
+.contextMenu LI.hover A {
+	color: #FFF;
+	background-color: #3399FF;
+}
+
+.contextMenu LI.disabled A {
+	color: #AAA;
+	cursor: default;
+}
+
+.contextMenu LI.hover.disabled A {
+	background-color: transparent;
+}
+
+.contextMenu LI.separator {
+	border-top: solid 1px #CCC;
+}

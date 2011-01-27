@@ -1,0 +1,38 @@
+[global]
+plugins=base,configfile,srcds_autoupdate,srcds_map,srcds_update,srcds_mapcycle
+interfaces=srcds_rcon
+ip=192.168.0.5
+logfile=maul_rcon.log
+
+# configuration options for the srcds_rcon interface
+rcon_hostname=More testing
+rcon_mapname=ctf_wtf
+rcon_appid=440
+rcon_gamedir=tf
+rcon_gamename=Team Fortress
+rcon_port=37015
+rcon_pwd=test
+
+# default location of maps for the srcds_map plugin
+mapurl=http://www.myfastmaps.com.notreal/path/to/stuff/maps/
+
+# options for installing as a windows service
+# the service ID, should be unique between SCI instances
+#svcid=sci_2
+# the service name, which will show up in the 'services' control panel
+#svcname=SCI #2
+
+[server1]
+name=test_server
+type=srcds
+# subtypes exist for certain server types. 'srcds' has 'svc' on windows
+# for example.
+#subtype=svc
+dir=/tmp/
+ip=192.168.0.5
+port=27015
+server_cmd=grep
+server_args=test
+update_cmd=sleep 5
+
+
