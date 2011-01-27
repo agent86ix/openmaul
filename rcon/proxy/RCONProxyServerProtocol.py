@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import socket, random, string, sys;
+import socket, random, string, sys, os;
 import simplejson as json
 from SourceRCONClientProtocol import SourceRCONClientProtocol
 from RCONClientSession import RCONClientSession
@@ -161,6 +161,7 @@ class RCONProxyServerProtocol(DatagramProtocol):
 					self.transport.write(buf, addr);
 					self.state['act_log'].log(client.maul_id, "Admin reset requested...");								
 					reactor.stop();
+					os.execl(sys.executable, sys.executable, * sys.argv);
 			else:
 				response['admin'] = 0;	
 		# 1 = rcon from client, 2 = get log, 3 = get status, 
