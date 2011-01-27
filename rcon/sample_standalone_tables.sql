@@ -24,6 +24,8 @@ CREATE TABLE IF NOT EXISTS `maul_rcon_servers` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM;
 
+insert into maul_rcon_servers (address, port, rcon_password, name, game) values ('127.0.0.1', '60000', '', 'Default Server', 'default');
+
 -- --------------------------------------------------------
 
 --
