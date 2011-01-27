@@ -1,0 +1,56 @@
+# This file is part of the OpenMAUL project
+# Copyright (C) 2011 agent86.ego@gmail.com
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+[global]
+# The IP to bind to, useful mainly where there are multiple network
+# cards or IP addresses in the system.  This should be the IP for
+# your 'public' or 'external' interface.
+bindip=127.0.0.1
+
+# The IP to tell servers to log to, ie, in logaddress_add.
+# This might be different from bindip if you are behind a NAT
+# or something similar.
+# This should be the same as PROXY_ADDR in config.inc.php in the web
+# half of the install.
+logip=127.0.0.1
+
+# The UDP port that you want log data to come in on.  If NAT'ed, this
+# must be open/forwarded at the NAT/router device.
+logport=47015
+
+# The UDP port for client data (ie, the port specified in PROXY_PORT
+# on the web config.inc.php).  Also must be open/forwarded.
+clientport=47016
+
+# The port to bind to when requesting UDP status from servers.
+# Should not need to be NAT forwarded, but should be open if you have
+# a local firewall.
+statusport=47017
+
+# If a command contains any of the following (comma separated)
+# it will be rejected as forbidden.  Anything you don't want
+# clients to be able to access/change should go here.
+forbidden_cmds=rcon_password
+
+# The host where the MySQL database is located, and its login details.
+dbhost=127.0.0.1
+dbuser=maul_rcon
+dbpass=maul12345
+dbname=maul
+
+# Table names you are using on the MySQL database above.
+db_server_table_name,maul_rcon_servers
+db_user_table_name,maul_rcon_users
